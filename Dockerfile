@@ -66,11 +66,32 @@ RUN mkdir -p "${HOMEDIR}/Zomboid"
 
 WORKDIR ${HOMEDIR}
 # Expose ports
-EXPOSE 16261-16262/udp \
-  27015/tcp
 
-ENTRYPOINT ["/server/scripts/entry.sh"]
 
 # Copy the built config app from the builder stage and run it
 COPY --from=config-app-builder /app/build /server-config-app
-CMD [ "node", "/server-config-app/index.js" ]
+#CMD [ "node", "/server-config-app/index.js" ]
+# Create a wrapper script that runs both processes
+RUN echo '#!/bin/bash\n\
+# Start the Node.js app in the background\n\
+node /server-config-app/index.js &\n\
+\n\
+# Store the PID of the Node.js app\n\
+NODE_PID=$!\n\
+\n\
+# Execute the entry script (this will run in the foreground)\n\
+/server/scripts/entry.sh "$@"\n\
+\n\
+# If entry.sh exits, kill the Node.js process\n\
+kill $NODE_PID\n\
+' > /server/scripts/run_both.sh && \
+chmod 550 /server/scripts/run_both.sh
+
+EXPOSE  16261-16262/udp \
+        27015/tcp \
+        3000/tcp 
+
+#ENTRYPOINT ["/server/scripts/entry.sh"]
+# Use the wrapper script as the entrypoint
+ENTRYPOINT ["/server/scripts/run_both.sh"]
+
