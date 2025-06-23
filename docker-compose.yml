@@ -1,17 +1,17 @@
-version: "3.7"
 services:
-  ProjectZomboidDedicatedServer:
-    image: danixu86/project-zomboid-dedicated-server:latest
+  project-zomboid-server:
     restart: unless-stopped
     build:
       context: .
       dockerfile: Dockerfile
     env_file:
       - .env
+    # command: tail -f /dev/null
     ports:
       - "16261:16261/udp"
       - "16262:16262/udp"
       - "27015:27015/tcp"
+      - "3000:3000/tcp"
     volumes:
       # Server data
       - ./data:/home/steam/Zomboid

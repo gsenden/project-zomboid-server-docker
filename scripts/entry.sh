@@ -118,8 +118,8 @@ if [ -n "${IP}" ]; then
 fi
 
 # Set the DefaultPort for the server. Example: 16261
-if [ -n "${PORT}" ]; then
-  ARGS="${ARGS} -port ${PORT}"
+if [ -n "${ZOMBOIDPORT}" ]; then
+  ARGS="${ARGS} -port ${ZOMBOIDPORT}"
 fi
 
 # Option to enable/disable VAC on Steam servers. On the server command-line use -steamvac true/false. In the server's INI file, use STEAMVAC=true/false.

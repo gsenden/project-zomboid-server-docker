@@ -1,7 +1,27 @@
 ###########################################################
 # Dockerfile that builds a Project Zomboid Gameserver
 ###########################################################
+# Use multi-stage build to build the config app
+FROM node:20-alpine AS config-app-builder
+
+# Set the working directory for the config app
+WORKDIR /app
+
+# Copy server-config-app files
+COPY server-config-app/package*.json ./
+RUN npm install
+
+# Copy the rest of the application code
+COPY server-config-app/ .
+
+# Build the SvelteKit application
+RUN npm run build
+
 FROM cm2network/steamcmd:root
+RUN apt-get update \
+  && apt-get install curl gnupg -y \
+  && curl -sL https://deb.nodesource.com/setup_22.x | bash - \
+  && apt-get install nodejs -y
 
 LABEL maintainer="daniel.carrasco@electrosoftcloud.com"
 
@@ -50,3 +70,7 @@ EXPOSE 16261-16262/udp \
   27015/tcp
 
 ENTRYPOINT ["/server/scripts/entry.sh"]
+
+# Copy the built config app from the builder stage and run it
+COPY --from=config-app-builder /app/build /server-config-app
+CMD [ "node", "/server-config-app/index.js" ]
