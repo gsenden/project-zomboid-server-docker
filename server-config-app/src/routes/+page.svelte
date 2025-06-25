@@ -2,12 +2,12 @@
 	// You can add any page-specific script logic here
 </script>
 
-<div class="w-screen h-screen bg-black flex justify-center items-center relative overflow-hidden">
-	<div class="absolute inset-0 bg-[url('/background.png')] bg-center bg-no-repeat bg-contain opacity-50"></div>
-	<div class="w-full h-full flex flex-col items-center pt-8 z-10 relative">
-		<h1 class="text-white text-4xl font-bold text-center">Project Zomboid Server Config</h1>
-	</div>
+<div class="flex items-center justify-center h-screen w-full">
+  <div class="w-full h-full max-w-[1920px] max-h-[1024px] bg-[url('/background.png')] bg-center bg-no-repeat bg-cover p-10">
+    <div class="h-full border-neutral-600 border-1"></div>
+  </div>
 </div>
+
 
 <style>
 	/* Global styles that can't be done with Tailwind utilities */
@@ -23,4 +23,8 @@
 		height: 100%;
 		overflow: hidden;
 	}
+
+    :global(.content) {
+        border: 1px solid red;
+    }
 </style>
