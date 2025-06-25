@@ -45,7 +45,7 @@
     <div class="h-full border-neutral-700 border-1 bg-black/30 flex flex-col">
         <!-- Header -->
         <div class="flex justify-center p-1">
-            <h1 class="text-white text-2xl md:text-3xl pz-font">Edit Server Settings</h1> 
+            <h1 class="text-white text-2xl md:text-3xl courier-prime-regular">Edit Server Settings</h1> 
         </div>
         
         <!-- Main content area -->
@@ -117,9 +117,8 @@
 
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
     
-    /* Global styles that can't be done with Tailwind utilities */
     :global(body) {
         margin: 0;
         padding: 0;
@@ -133,14 +132,13 @@
         overflow: hidden;
     }
 
-    /* Custom border width since Tailwind uses other sizes by default */
     .border-1 {
         border-width: 1px;
     }
     
-    /* Define Project Zomboid font style */
-    .pz-font {
-        font-family: 'VT323', monospace;
+   .courier-prime-regular {
+        font-family: 'Courier Prime', monospace;
+        font-weight: 400;
         letter-spacing: 0.05em;
     }
 </style>
