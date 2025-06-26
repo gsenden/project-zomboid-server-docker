@@ -177,4 +177,82 @@ describe('Feature: Setting Component', () => {
 			await expect.element(textarea).toHaveAttribute('title', alt);
 		});
 	});
+
+	describe('Scenario: User views a checkbox setting for boolean options', () => {
+		it('They should see a checkbox when type is checkbox', async () => {
+			// Given: A user wants to configure a boolean setting
+			const value = true;
+			const alt = 'Enable or disable PvP combat on the server';
+
+			// When: A Setting component is rendered with type 'checkbox'
+			render(Setting, {
+				type: 'checkbox',
+				testId: 'PvPEnabled',
+				label: 'PvP Enabled',
+				alt: alt,
+				value: value
+			});
+
+			// Then: They should see a checkbox element
+			const checkbox = page.getByRole('checkbox');
+			await expect.element(checkbox).toBeInTheDocument();
+		});
+
+		it('They should see a checked checkbox when value is true', async () => {
+			// Given: A user wants to configure a boolean setting with value true
+			const value = true;
+			const alt = 'Enable or disable PvP combat on the server';
+
+			// When: A Setting component is rendered with type 'checkbox' and value true
+			render(Setting, {
+				type: 'checkbox',
+				testId: 'PvPEnabled',
+				label: 'PvP Enabled',
+				alt: alt,
+				value: value
+			});
+
+			// Then: The checkbox should be checked
+			const checkbox = page.getByRole('checkbox');
+			await expect.element(checkbox).toBeChecked();
+		});
+
+		it('They should see an unchecked checkbox when value is false', async () => {
+			// Given: A user wants to configure a boolean setting with value false
+			const value = false;
+			const alt = 'Enable or disable PvP combat on the server';
+
+			// When: A Setting component is rendered with type 'checkbox' and value false
+			render(Setting, {
+				type: 'checkbox',
+				testId: 'PvPEnabled',
+				label: 'PvP Enabled',
+				alt: alt,
+				value: value
+			});
+
+			// Then: The checkbox should not be checked
+			const checkbox = page.getByRole('checkbox');
+			await expect.element(checkbox).not.toBeChecked();
+		});
+
+		it('They should see hover text on the checkbox when type is checkbox', async () => {
+			// Given: A user wants to configure a boolean setting
+			const value = true;
+			const alt = 'Enable or disable PvP combat on the server';
+
+			// When: A Setting component is rendered with type 'checkbox'
+			render(Setting, {
+				type: 'checkbox',
+				testId: 'PvPEnabled',
+				label: 'PvP Enabled',
+				alt: alt,
+				value: value
+			});
+
+			// Then: The checkbox should have the title attribute for hover text
+			const checkbox = page.getByRole('checkbox');
+			await expect.element(checkbox).toHaveAttribute('title', alt);
+		});
+	});
 });

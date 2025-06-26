@@ -4,7 +4,7 @@
 		testId: string;
 		label: string;
 		alt: string;
-		value: string | number;
+		value: string | number | boolean;
 	}
 
 	let { type, testId, label, alt, value }: Props = $props();
@@ -24,6 +24,14 @@
 			rows="3"
 			class="bg-black/30 text-white border border-neutral-700 p-1 w-150 resize-none"
 		></textarea>
+	{:else if type === 'checkbox'}
+		<input 
+			type="checkbox" 
+			id={testId} 
+			title={alt}
+			checked={Boolean(value)}
+			class="bg-black/30 text-white border border-neutral-700 p-1"
+		/>
 	{:else}
 		<input 
 			type={type} 
