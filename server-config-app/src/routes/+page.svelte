@@ -1,10 +1,11 @@
 <script lang="ts">
-    import Setting from '../lib/components/Setting.svelte';
     import Details from '../lib/components/Details.svelte';
-    
+    import Steam from '../lib/components/Steam.svelte';
+
     // Component mapping for menu items
     const componentMap: Record<string, any> = {
         'Details': Details,
+        'Steam': Steam,
         // Future components will go here:
         // 'Steam': Steam,
         // 'Backups': Backups,
@@ -17,6 +18,9 @@
             defaultPort: 16261,
             publicName: "My Server",
             publicDescription: "A Project Zomboid server"
+        },
+        'Steam': {
+            udpPort: 16261
         }
         // Future component props will go here
     };
