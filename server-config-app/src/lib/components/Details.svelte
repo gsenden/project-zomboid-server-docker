@@ -6,9 +6,12 @@
 		publicName: string;
 		publicDescription: string;
 		isPublic: boolean;
+		password: string;
+		pauseEmpty: boolean;
+		resetID: string;
 	}
 
-	let { defaultPort, publicName, publicDescription, isPublic: isPublic }: Props = $props();
+	let { defaultPort, publicName, publicDescription, isPublic: isPublic, password, pauseEmpty, resetID }: Props = $props();
 </script>
 
 <div class="space-y-4">
@@ -49,7 +52,7 @@
 		testId="Password" 
 		label="Password" 
 		alt="The password required to join the server" 
-		value={isPublic} 
+		value={password} 
 	/>
 
 	<Setting 
@@ -57,7 +60,7 @@
 		testId="PauseEmpty" 
 		label="PauseEmpty" 
 		alt="Whether the server should pause when empty" 
-		value={isPublic} 
+		value={pauseEmpty} 
 	/>
 
 	<Setting 
@@ -65,7 +68,7 @@
 		testId="ResetID" 
 		label="ResetID" 
 		alt="The ID used to reset the server" 
-		value={isPublic} 
+		value={resetID} 
 	/>
 </div>
 
