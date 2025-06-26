@@ -13,7 +13,7 @@
 <div data-testid={testId} class="flex {type === 'description' ? 'items-start' : 'items-center'} gap-4">
 	<label 
 		for={testId} 
-		class="text-white w-48 flex-shrink-0 text-right"
+		class="text-white w-55 flex-shrink-0 text-right"
 		>{label}</label>
 	
 	{#if type === 'description'}

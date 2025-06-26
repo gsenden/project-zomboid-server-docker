@@ -1,11 +1,13 @@
 <script lang="ts">
     import Details from '../lib/components/Details.svelte';
     import Steam from '../lib/components/Steam.svelte';
+    import Backups from '../lib/components/Backups.svelte';
 
     // Component mapping for menu items
     const componentMap: Record<string, any> = {
         'Details': Details,
         'Steam': Steam,
+        'Backups': Backups,
         // Future components will go here:
         // 'Steam': Steam,
         // 'Backups': Backups,
