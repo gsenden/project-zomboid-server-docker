@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Setting from '$lib/components/Setting.svelte';
+    
     // Define menu structure for easier management
     const menuStructure = [
         {
@@ -93,12 +95,54 @@
             <div class="flex-1 border-1 border-neutral-700 ml-5 mr-5 bg-black/30 text-white p-4">
                 {#if selectedItem}
                     <div>
-                        <h2 class="text-xl mb-4">{selectedItem} Settings</h2>
-                        
+                        {#if selectedItem === "Details"}
+                            <div class="space-y-4">
+                                <Setting 
+                                    type="text" 
+                                    testId="ServerName" 
+                                    label="Server Name" 
+                                    alt="The display name of your server that players will see" 
+                                    value="My PZ Server" 
+                                />
+                                
+                                <Setting 
+                                    type="number" 
+                                    testId="MaxPlayers" 
+                                    label="Max Players" 
+                                    alt="Maximum number of players allowed on the server" 
+                                    value={16} 
+                                />
+                                
+                                <Setting 
+                                    type="password" 
+                                    testId="ServerPassword" 
+                                    label="Server Password" 
+                                    alt="Password required to join the server (leave empty for no password)" 
+                                    value="" 
+                                />
+                                
+                                <Setting 
+                                    type="text" 
+                                    testId="PublicName" 
+                                    label="Public Name" 
+                                    alt="The name that appears in the server browser" 
+                                    value="My Awesome PZ Server" 
+                                />
+                                
+                                <Setting 
+                                    type="text" 
+                                    testId="PublicDescription" 
+                                    label="Public Description" 
+                                    alt="A description of your server for the public server list" 
+                                    value="A friendly survival server with custom mods" 
+                                />
+                            </div>
+                        {:else}
                             <div class="text-neutral-300">
                                 Settings for {selectedItem} will appear here.
                             </div>
-                                            </div>
+                        {/if}
+                    </div>
                 {:else}
                     <div class="flex items-center justify-center h-full">
                         <p class="text-neutral-400">Select a menu item from the left sidebar.</p>
