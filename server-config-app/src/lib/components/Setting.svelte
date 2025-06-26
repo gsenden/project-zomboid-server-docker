@@ -20,7 +20,7 @@
 		<textarea 
 			id={testId} 
 			title={alt}
-			value={value}
+			value={String(value)}
 			rows="3"
 			class="bg-black/30 text-white border border-neutral-700 p-1 w-150 resize-none"
 		></textarea>
