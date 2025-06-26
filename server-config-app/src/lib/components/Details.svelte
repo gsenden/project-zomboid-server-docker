@@ -18,7 +18,7 @@
 	<Setting 
 		type="number" 
 		testId="DefaultPort" 
-		label="DefaultPort" 
+		label="Default Port" 
 		alt="The default network port for the server (typically 16261)" 
 		value={defaultPort} 
 	/>
@@ -26,7 +26,7 @@
     <Setting 
 		type="string" 
 		testId="PublicName" 
-		label="PublicName" 
+		label="Public Name" 
 		alt="The name that appears in the server browser" 
 		value={publicName} 
 	/>
@@ -34,7 +34,7 @@
     <Setting 
 		type="description" 
 		testId="PublicDescription" 
-		label="PublicDescription" 
+		label="Public Description" 
 		alt="The description that appears in the server browser" 
 		value={publicDescription} 
 	/>
@@ -58,7 +58,7 @@
 	<Setting 
 		type="checkbox" 
 		testId="PauseEmpty" 
-		label="PauseEmpty" 
+		label="Pause Empty" 
 		alt="Whether the server should pause when empty" 
 		value={pauseEmpty} 
 	/>
@@ -66,7 +66,7 @@
 	<Setting 
 		type="string" 
 		testId="ResetID" 
-		label="ResetID" 
+		label="Reset ID" 
 		alt="The ID used to reset the server" 
 		value={resetID} 
 	/>
