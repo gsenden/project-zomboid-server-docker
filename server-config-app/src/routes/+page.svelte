@@ -1,5 +1,25 @@
 <script lang="ts">
     import Setting from '../lib/components/Setting.svelte';
+    import Details from '../lib/components/Details.svelte';
+    
+    // Component mapping for menu items
+    const componentMap: Record<string, any> = {
+        'Details': Details,
+        // Future components will go here:
+        // 'Steam': Steam,
+        // 'Backups': Backups,
+        // etc.
+    };
+
+    // Props for each component
+    const componentProps: Record<string, any> = {
+        'Details': {
+            defaultPort: 16261,
+            publicName: "My Server",
+            publicDescription: "A Project Zomboid server"
+        }
+        // Future component props will go here
+    };
     
     // Define menu structure for easier management
     const menuStructure = [
@@ -95,48 +115,8 @@
             <div class="flex-1 border-1 border-neutral-700 ml-5 mr-5 bg-black/30 text-white p-4">
                 {#if selectedItem}
                     <div>
-                        {#if selectedItem === "Details"}
-                            <div class="space-y-4">
-                                <Setting 
-                                    type="text" 
-                                    testId="ServerName" 
-                                    label="Server Name" 
-                                    alt="The display name of your server that players will see" 
-                                    value="My PZ Server" 
-                                />
-                                
-                                <Setting 
-                                    type="number" 
-                                    testId="MaxPlayers" 
-                                    label="Max Players" 
-                                    alt="Maximum number of players allowed on the server" 
-                                    value={16} 
-                                />
-                                
-                                <Setting 
-                                    type="password" 
-                                    testId="ServerPassword" 
-                                    label="Server Password" 
-                                    alt="Password required to join the server (leave empty for no password)" 
-                                    value="" 
-                                />
-                                
-                                <Setting 
-                                    type="text" 
-                                    testId="PublicName" 
-                                    label="Public Name" 
-                                    alt="The name that appears in the server browser" 
-                                    value="My Awesome PZ Server" 
-                                />
-                                
-                                <Setting 
-                                    type="text" 
-                                    testId="PublicDescription" 
-                                    label="Public Description" 
-                                    alt="A description of your server for the public server list" 
-                                    value="A friendly survival server with custom mods" 
-                                />
-                            </div>
+                        {#if componentMap[selectedItem]}
+                            <svelte:component this={componentMap[selectedItem]} {...componentProps[selectedItem]} />
                         {:else}
                             <div class="text-neutral-300">
                                 Settings for {selectedItem} will appear here.
