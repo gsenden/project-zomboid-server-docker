@@ -5,25 +5,34 @@ import Details from './Details.svelte';
 
 describe('Feature: Server Details Configuration', () => {
 	describe('Scenario: User views the server details section', () => {
-		it('They should see a clear indication they are in the details section', async () => {
+        it('They should see a way to configure the DefaultPort', async () => {
 			// Given: A user wants to configure their Project Zomboid server details
 			// When: They navigate to the details configuration section
 			render(Details);
 
-			// Then: They should see a clear indication they are in the details section
-			const sectionIndicator = page.getByRole('heading', { level: 2 });
-			await expect.element(sectionIndicator).toBeInTheDocument();
-			await expect.element(sectionIndicator).toHaveTextContent('Details Settings');
+			// Then: They should see a way to configure the DefaultPort
+			const defaultPortInput = page.getByTestId('DefaultPort');
+			await expect.element(defaultPortInput).toBeInTheDocument();
 		});
 
-        // it('They should see a way to configure the DefaultPort', async () => {
-		// 	// Given: A user wants to configure their Project Zomboid server details
-		// 	// When: They navigate to the details configuration section
-		// 	render(Details);
+		it('They should see a way to configure the PublicName', async () => {
+			// Given: A user wants to configure their Project Zomboid server details
+			// When: They navigate to the details configuration section
+			render(Details);
 
-		// 	// Then: They should see a way to configure the DefaultPort
-		// 	const defaultPortInput = page.getByTestId('DefaultPort');
-		// 	await expect.element(defaultPortInput).toBeInTheDocument();
-		// });
+			// Then: They should see a way to configure the PublicName
+			const publicNameInput = page.getByTestId('PublicName');
+			await expect.element(publicNameInput).toBeInTheDocument();
+		});
+
+		it('They should see a way to configure the PublicDescription', async () => {
+			// Given: A user wants to configure their Project Zomboid server details
+			// When: They navigate to the details configuration section
+			render(Details);
+
+			// Then: They should see a way to configure the PublicDescription
+			const publicDescriptionInput = page.getByTestId('PublicDescription');
+			await expect.element(publicDescriptionInput).toBeInTheDocument();
+		});
 	});
 });

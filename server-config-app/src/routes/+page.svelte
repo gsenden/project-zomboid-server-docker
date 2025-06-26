@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Setting from '$lib/components/Setting.svelte';
+    import Setting from '../lib/components/Setting.svelte';
     
     // Define menu structure for easier management
     const menuStructure = [
