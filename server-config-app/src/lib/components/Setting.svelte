@@ -4,7 +4,7 @@
 		testId: string;
 		label: string;
 		alt: string;
-		value: number | string;
+		value: string | number;
 	}
 
 	let { type, testId, label, alt, value }: Props = $props();
@@ -16,7 +16,7 @@
 		type={type} 
 		id={testId} 
 		title={alt}
-		value={String(value)}
+		value={value}
 		inputmode={type === 'number' ? 'numeric' : undefined}
 	/>
 </div>
