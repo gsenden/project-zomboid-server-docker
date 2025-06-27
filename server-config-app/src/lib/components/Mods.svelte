@@ -8,6 +8,6 @@
 	let {  }: Props = $props();
 </script>
 
-<div class="space-y-4">
+<div class="space-y-2">
 	
 </div>

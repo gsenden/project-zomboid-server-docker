@@ -2,6 +2,7 @@
     import Details from '../lib/components/Details.svelte';
     import Steam from '../lib/components/Steam.svelte';
     import Backups from '../lib/components/Backups.svelte';
+    import Players from '../lib/components/Players.svelte';
 	// 	import type { PageData } from './$types';
 
     // export let data: PageData;
@@ -14,6 +15,7 @@
         'Details': Details,
         'Steam': Steam,
         'Backups': Backups,
+        'Players': Players,
         // Future components will go here:
         // 'Steam': Steam,
         // 'Backups': Backups,

@@ -14,7 +14,7 @@
 	let { defaultPort, publicName, publicDescription, isPublic: isPublic, password, pauseEmpty, resetID }: Props = $props();
 </script>
 
-<div class="space-y-4">
+<div class="space-y-2">
 	<Setting 
 		type="number" 
 		testId="DefaultPort" 
