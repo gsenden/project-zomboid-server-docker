@@ -2,8 +2,14 @@
     import Details from '../lib/components/Details.svelte';
     import Steam from '../lib/components/Steam.svelte';
     import Backups from '../lib/components/Backups.svelte';
+	// 	import type { PageData } from './$types';
 
-    // Component mapping for menu items
+    // export let data: PageData;
+
+    // alert(data.currentPath)
+
+    // Component mapping for m
+    // enu items
     const componentMap: Record<string, any> = {
         'Details': Details,
         'Steam': Steam,
@@ -49,7 +55,7 @@
     ];
 
     // Track which section is expanded
-    let expandedSections: { [key: string]: boolean } = {
+    const expandedSections: { [key: string]: boolean } = {
         "INI": true,
         "Sandbox": true
     };
@@ -66,6 +72,7 @@
     function toggleSection(section: string) {
         expandedSections[section] = !expandedSections[section];
     }
+    
 </script>
 
 <div class="flex items-center justify-center h-screen w-full">
