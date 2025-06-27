@@ -116,8 +116,8 @@
                     </div>
                 {/each}
             </div>
-            
-            <!-- Main content area -->
+
+            <!-- Settings content area -->
             <div class="flex-1 border-1 border-neutral-700 ml-5 mr-5 bg-black/30 text-white p-4">
                 {#if selectedItem}
                     <div>
